@@ -9,7 +9,7 @@
 void app_main(void)
 {
     // Initialize sensor on the default GPIO pin
-    esp_err_t result = rpm_sensor_init(HALL_SENSOR_PIN);
+    esp_err_t result = rpm_sensor_init(GPIO_NUM_42);
     if (result != ESP_OK) {
         ESP_LOGE(TAG, "Failed to initialize RPM sensor");
         return;
