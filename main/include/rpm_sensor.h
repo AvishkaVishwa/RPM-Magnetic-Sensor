@@ -5,9 +5,9 @@
 #include "driver/gpio.h"
 #include "esp_err.h"
 
-#define HALL_SENSOR_PIN    GPIO_NUM_42   // Connect your HW-484 to GPIO4 (change if needed)
+#define HALL_SENSOR_PIN    GPIO_NUM_4   // Connect your HW-484 to GPIO4 (change if needed)
 #define DEBOUNCE_TIME      10           // Debounce time in milliseconds
-#define RPM_CALC_INTERVAL  1000         // Calculate RPM every 1000ms
+#define RPM_CALC_INTERVAL  100         // Calculate RPM every 1000ms
 
 /**
  * @brief Initialize the RPM sensor

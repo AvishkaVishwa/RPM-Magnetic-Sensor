@@ -6,6 +6,8 @@
 
 #define TAG "RPM_SENSOR"
 
+#define NUM_MAGNETS 4
+
 // Variables for RPM calculation
 static volatile uint32_t pulse_count = 0;
 static volatile int64_t last_time = 0;
@@ -32,7 +34,7 @@ static void rpm_task(void *pvParameters)
     uint32_t pulses;
     
     while (1) {
-        vTaskDelay(pdMS_TO_TICKS(RPM_CALC_INTERVAL));
+        vTaskDelay(pdMS_TO_TICKS(RPM_CALC_INTERVAL )); // Wait for the interval
         
         // Critical section to safely read pulse_count
         portENTER_CRITICAL(&spinlock);
@@ -42,7 +44,8 @@ static void rpm_task(void *pvParameters)
         
         // Calculate RPM - multiply by 60 (seconds per minute)
         // Divide by the number of magnets if you have multiple magnets on your wheel
-        rpm = (pulses * 60.0 * 1000) / RPM_CALC_INTERVAL;
+        
+        rpm = (pulses * 60.0 * 1000) / (RPM_CALC_INTERVAL* NUM_MAGNETS) ;
         
         ESP_LOGI(TAG, "Pulses: %lu, RPM: %.2f", pulses, rpm);
     }
