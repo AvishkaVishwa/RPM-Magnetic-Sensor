@@ -1,4 +1,4 @@
-# ESP32 RPM Magnetic Sensor
+# RPM Magnetic Sensor with ESP32
 
 An ESP-IDF project for measuring rotational speed (RPM) using a magnetic sensor (e.g., Hall effect sensor) connected to an ESP32.
 
