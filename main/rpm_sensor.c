@@ -6,7 +6,7 @@
 
 #define TAG "RPM_SENSOR"
 
-#define NUM_MAGNETS 4
+#define NUM_MAGNETS 2
 
 // Variables for RPM calculation
 static volatile uint32_t pulse_count = 0;
